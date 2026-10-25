@@ -1,1 +1,32 @@
 
+using UnityEngine;
+
+public class PlayerMover : MonoBehaviour
+{
+    public float moveSpeed = 5f;
+
+    // Gioi han di chuyen tren san XZ
+    public float minX = -8f;
+    public float maxX = 8f;
+    public float minZ = -4f;
+    public float maxZ = 4f;
+
+    void Update()
+    {
+        // Doc phim ngang va doc
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+
+        // Di chuyen tren mat phang XZ
+        Vector3 movement = new Vector3(moveX, 0f, moveZ).normalized;
+
+        transform.position += movement * moveSpeed * Time.deltaTime;
+
+        // Gioi han vi tri
+        float x = Mathf.Clamp(transform.position.x, minX, maxX);
+        float z = Mathf.Clamp(transform.position.z, minZ, maxZ);
+
+        transform.position = new Vector3(x, transform.position.y, z);
+    }
+}
+
