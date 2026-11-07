@@ -1,4 +1,4 @@
-**Functions FixedUpdate**
+// Functions FixedUpdate
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
