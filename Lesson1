@@ -1,4 +1,4 @@
-
+// Script dùng để di chuyển Object bằng phím A, W, S, D
 using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
