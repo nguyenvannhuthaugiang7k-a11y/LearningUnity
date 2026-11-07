@@ -1,0 +1,26 @@
+**Functions FixedUpdate**
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    private Rigidbody rb;
+    private float moveInput;
+    public float speed = 5f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Nhận phím bấm từ người chơi ở Update để không bị sót nút bấm
+    void Update()
+    {
+        moveInput = Input.GetAxis("Horizontal");
+    }
+
+    // Thực hiện di chuyển vật lý ở FixedUpdate để đảm bảo mượt mà và chính xác
+    void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+    }
+}
